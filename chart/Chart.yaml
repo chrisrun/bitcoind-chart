@@ -1,0 +1,19 @@
+apiVersion: v1
+appVersion: "latest"
+description: Bitcoin client built in Go
+name: bitcoind
+version: 0.1.0
+home: https://github.com/btcsuite/bitcoind
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png
+keywords:
+    - bitcoin
+    - cryptocurrency
+    - blockchain
+    - btc
+    - crypto
+maintainers:
+    - name: Gabriel Smadi
+      email: gabriel@labs.smadi.ci
+      url: http://labs.smadi.ci
+sources:
+    - https://github.com/btcsuite/bitcoind

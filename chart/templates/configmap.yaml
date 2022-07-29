@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "bitcoind.name" . }}
+  labels:
+    app: {{ include "bitcoind.name" . }}
+    chart: {{ include "bitcoind.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data: 
+  bitcoin.conf: |
+    {{ include "network" . }}=1
+    [{{ include "network" . }}]
+    rpcuser={{ .Values.configuration.rpcuser }}
+    zmqpubrawblock=tcp://0.0.0.0:{{ .Values.service.zmqBlock }}
+    zmqpubrawtx=tcp://0.0.0.0:{{ .Values.service.zmqTx }}
+    txindex={{ .Values.configuration.txindex }}
+    # server=1 tells Bitcoin-Qt and bitcoind to accept JSON-RPC commands
+    server={{ .Values.configuration.server }}
+    rpcbind={{ .Values.configuration.rpcbind }}
+    rpcallowip={{ .Values.configuration.rpcallowip }}
+    # Print to console (stdout) so that "docker logs bitcoind" prints useful
+    # information.
+    printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
+    # We probably don't want a wallet.
+    disablewallet={{ .Values.configuration.disablewallet | default 1 }}
