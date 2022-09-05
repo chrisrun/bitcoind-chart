@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ include "bitcoind.name" . }}
   labels:
-    app: {{ include "bitcoind.name" . }}
-    chart: {{ include "bitcoind.chart" . }}
+    app: {{ template "bitcoind.name" . }}
+    chart: {{ template "bitcoind.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data: 
