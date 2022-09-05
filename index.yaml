@@ -3,6 +3,29 @@ entries:
   bitcoind:
   - apiVersion: v1
     appVersion: "22"
+    created: "2022-09-05T20:12:25.277854999Z"
+    description: Bitcoin node chart
+    digest: 336d8e86ef647ddd8978208361d533778ea03447d8085a41ba05e3608598ff96
+    home: https://chrisrun.github.io/bitcoind-chart/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png
+    keywords:
+    - bitcoin
+    - blockchain
+    - btc
+    - helm
+    - docker
+    maintainers:
+    - email: chrisrun@users.noreply.github.com
+      name: Christian Hubmann
+      url: https://chrisrun.github.io/bitcoind-chart/
+    name: bitcoind
+    sources:
+    - https://github.com/chrisrun/bitcoind-chart/
+    urls:
+    - https://github.com/chrisrun/bitcoind-chart/releases/download/bitcoind-1.1.2/bitcoind-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v1
+    appVersion: "22"
     created: "2022-09-05T20:04:15.837391228Z"
     description: Bitcoin node chart
     digest: 44d1a31fab2a676572bcc5c5a69d2714756fe2147c4d6f2e6df75528e5915779
@@ -47,4 +70,4 @@ entries:
     urls:
     - https://github.com/chrisrun/bitcoind-chart/releases/download/bitcoind-0.1.0/bitcoind-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-05T20:04:15.837398428Z"
+generated: "2022-09-05T20:12:25.277874899Z"
