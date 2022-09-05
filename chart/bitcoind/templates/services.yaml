@@ -8,19 +8,18 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
     - name: rpc
-      port: {{ .Values.service.rpcPort }}
+      port: 8332
       targetPort: rpc
     - name: p2p
-      port: {{ .Values.service.p2pPort }}
+      port: 8333
       targetPort: p2p
     - name: zmq-block
-      port: {{ .Values.service.zmqBlock }}
+      port: 28332
       targetPort: zmq-block
     - name: zmq-tx
-      port: {{ .Values.service.zmqTx }}
+      port: 28333
       targetPort: zmq-tx
   selector:
     app: {{ include "bitcoind.name" . }}

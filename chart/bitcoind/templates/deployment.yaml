@@ -54,15 +54,20 @@ spec:
                 secretKeyRef:
                   key: rpcpassword
                   name: {{ include "bitcoind.name" . }}
+            - name: RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "bitcoind.name" . }}
           ports:
             - name: rpc
-              containerPort: {{ .Values.service.rpcPort }}
+              containerPort: 8332
             - name: p2p
-              containerPort: {{ .Values.service.p2pPort }}
+              containerPort: 8333
             - name: zmq-block
-              containerPort: {{ .Values.service.zmqBlock }}
+              containerPort: 28332
             - name: zmq-tx
-              containerPort: {{ .Values.service.zmqTx }}
+              containerPort: 28333
           volumeMounts:
             - name: persistent-storage
               mountPath: /bitcoin/data
