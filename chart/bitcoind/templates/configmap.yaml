@@ -11,16 +11,16 @@ data:
   bitcoin.conf: |
     {{ include "network" . }}=1
     [{{ include "network" . }}]
-    rpcuser={{ .Values.configuration.rpcuser }}
-    zmqpubrawblock=tcp://0.0.0.0:{{ .Values.service.zmqBlock }}
-    zmqpubrawtx=tcp://0.0.0.0:{{ .Values.service.zmqTx }}
+    zmqpubrawblock=tcp://0.0.0.0:28332
+    zmqpubrawtx=tcp://0.0.0.0:28333
     txindex={{ .Values.configuration.txindex }}
     # server=1 tells Bitcoin-Qt and bitcoind to accept JSON-RPC commands
     server={{ .Values.configuration.server }}
-    rpcbind={{ .Values.configuration.rpcbind }}
-    rpcallowip={{ .Values.configuration.rpcallowip }}
+    rpcbind=0.0.0.0 #this is restricted from within the cluster
+    rpcallowip=0.0.0.0/0 #this is restricted from within the cluster
     # Print to console (stdout) so that "docker logs bitcoind" prints useful
     # information.
     printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
     # We probably don't want a wallet.
     disablewallet={{ .Values.configuration.disablewallet | default 1 }}
+    prune={{ .Values.configuration.prune | default 0 }}

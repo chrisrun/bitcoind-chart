@@ -19,6 +19,5 @@ fi
 # Add user parameters to command.
 PARAMS="$PARAMS $@"
 
-# Print command and start bitcoin node.
-echo "Command: bitcoind $PARAMS"
+# Start bitcoin node.
 exec bitcoind $PARAMS
