@@ -1,4 +1,4 @@
-<!--- app-name` | Lightning Network Daemon Helm Charts -->
+<!--- app-name` | Bitcoin Core Helm Charts -->
 
 # Bitcoind Helm Charts
 
@@ -28,7 +28,7 @@ This chart bootstraps a [bitcoin](https://github.com/bitcoin/bitcoin) deployment
 
 ## Installing the Chart
 
-To install the chart with the release name `bitcoind`` |
+To install the chart with the release name `bitcoind`
 
 ```bash
 $  helm repo add bitcoind https://chrisrun.github.io/bitcoind-chart/
@@ -37,7 +37,7 @@ $  helm upgrade --install bitcoind bitcoind/bitcoind -n bitcoind --create-namesp
 
 These commands deploy a bitcoin full node on the Kubernetes cluster using the default configuration.
 
-> **Tip**` | List all releases using `helm list`
+> **Tip** List all releases using `helm list`
 
 
 ```bash
@@ -46,7 +46,7 @@ These commands deploy a bitcoin full node on the Kubernetes cluster using the de
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `bitcoind` deployment` |
+To uninstall/delete the `bitcoind` deployment
 
 ```bash
 $ helm delete bitcoind -n bitcoind
