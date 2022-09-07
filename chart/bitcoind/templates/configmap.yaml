@@ -9,15 +9,17 @@ metadata:
     heritage: {{ .Release.Service }}
 data: 
   bitcoin.conf: |
+    {{ if ne .Values.configuration.network "mainnet" }}
     {{ include "network" . }}=1
     [{{ include "network" . }}]
+    {{ end }}
     zmqpubrawblock=tcp://0.0.0.0:28332
     zmqpubrawtx=tcp://0.0.0.0:28333
     txindex={{ .Values.configuration.txindex }}
     # server=1 tells Bitcoin-Qt and bitcoind to accept JSON-RPC commands
     server={{ .Values.configuration.server }}
     rpcbind=0.0.0.0 #this is restricted from within the cluster
-    rpcallowip=0.0.0.0/0 #this is restricted from within the cluster
+    rpcallowip={{ .Values.configuration.rpcallowip }} #this is restricted from within the cluster, but can be further restricted by the values.yaml
     # Print to console (stdout) so that "docker logs bitcoind" prints useful
     # information.
     printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}

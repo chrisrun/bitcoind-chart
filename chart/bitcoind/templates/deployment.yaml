@@ -36,7 +36,6 @@ spec:
           {{ else }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           {{ end }}
-          
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           resources: 
           {{ toYaml .Values.resources | nindent 12 }}
