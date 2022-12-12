@@ -1,7 +1,7 @@
 FROM buildpack-deps:buster-curl as builder
 
 # This buildarg can be set during container build time with --build-arg VERSION=[version]
-ARG VERSION=22.0
+ARG VERSION=24.0.1
 
 RUN apt-get update && \
   apt-get install -y gnupg2 curl && \
